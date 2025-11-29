@@ -39,7 +39,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /var/www /var/www
 
 # Ajustar permissões
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 755 /var/www
 
 WORKDIR /var/www
 
